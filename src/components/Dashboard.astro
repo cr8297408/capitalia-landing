@@ -1,0 +1,517 @@
+---
+---
+
+<section id="demo" class="dashboard-section">
+	<div class="container">
+		<div class="dashboard-content">
+			<div class="dashboard-info">
+				<div class="badge">
+					<span class="badge-text">🎯 Dashboard en vivo</span>
+				</div>
+				<h2 class="dashboard-title">
+					Visualiza tus finanzas con <span class="gradient-text">analíticas avanzadas</span>
+				</h2>
+				<p class="dashboard-description">
+					Nuestro dashboard inteligente te muestra exactamente dónde va tu dinero, con gráficos interactivos y predicciones basadas en IA.
+				</p>
+				<div class="dashboard-features">
+					<div class="feature-item">
+						<div class="feature-icon">✨</div>
+						<div class="feature-text">
+							<strong>Predicciones IA</strong>
+							<span>Proyecciones de gastos futuras</span>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">📊</div>
+						<div class="feature-text">
+							<strong>Gráficos interactivos</strong>
+							<span>Visualización en tiempo real</span>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">🔍</div>
+						<div class="feature-text">
+							<strong>Análisis detallado</strong>
+							<span>Insights personalizados</span>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="btn btn-primary">Probar dashboard</a>
+			</div>
+			<div class="dashboard-visual">
+				<div class="dashboard-mockup glass-card">
+					<div class="dashboard-header">
+						<div class="header-left">
+							<h3>Dashboard Financiero</h3>
+							<p>Marzo 2024</p>
+						</div>
+						<div class="header-right">
+							<div class="notification-dot">3</div>
+						</div>
+					</div>
+					
+					<div class="stats-row">
+						<div class="stat-card balance">
+							<div class="stat-label">Balance Total</div>
+							<div class="stat-value">$12,847.50</div>
+							<div class="stat-change positive">+$1,234 (+10.6%)</div>
+						</div>
+						<div class="stat-card income">
+							<div class="stat-label">Ingresos</div>
+							<div class="stat-value">$8,500</div>
+							<div class="stat-change positive">+$500 (+6.2%)</div>
+						</div>
+						<div class="stat-card expenses">
+							<div class="stat-label">Gastos</div>
+							<div class="stat-value">$6,266</div>
+							<div class="stat-change negative">-$234 (-3.6%)</div>
+						</div>
+					</div>
+
+					<div class="chart-section">
+						<div class="chart-header">
+							<h4>Gastos por Categoría</h4>
+							<select class="chart-filter">
+								<option>Este mes</option>
+							</select>
+						</div>
+						<div class="chart-placeholder">
+							<div class="chart-bars">
+								<div class="bar food" data-percentage="35%">
+									<div class="bar-fill"></div>
+									<div class="bar-label">Comida</div>
+									<div class="bar-value">$2,193</div>
+								</div>
+								<div class="bar transport" data-percentage="25%">
+									<div class="bar-fill"></div>
+									<div class="bar-label">Transporte</div>
+									<div class="bar-value">$1,567</div>
+								</div>
+								<div class="bar entertainment" data-percentage="20%">
+									<div class="bar-fill"></div>
+									<div class="bar-label">Ocio</div>
+									<div class="bar-value">$1,253</div>
+								</div>
+								<div class="bar shopping" data-percentage="15%">
+									<div class="bar-fill"></div>
+									<div class="bar-label">Compras</div>
+									<div class="bar-value">$940</div>
+								</div>
+								<div class="bar utilities" data-percentage="5%">
+									<div class="bar-fill"></div>
+									<div class="bar-label">Servicios</div>
+									<div class="bar-value">$313</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="insights-section">
+						<div class="insight-card ai-insight">
+							<div class="insight-icon">🤖</div>
+							<div class="insight-content">
+								<div class="insight-title">Consejo de IA</div>
+								<div class="insight-text">Podrías ahorrar $150 reduciendo gastos en comida este mes</div>
+							</div>
+							<div class="insight-action">→</div>
+						</div>
+						<div class="insight-card goal-insight">
+							<div class="insight-icon">🎯</div>
+							<div class="insight-content">
+								<div class="insight-title">Meta de Ahorro</div>
+								<div class="insight-text">Vas 75% hacia tu objetivo de $5,000</div>
+							</div>
+							<div class="progress-bar">
+								<div class="progress-fill" style="width: 75%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.dashboard-section {
+		background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+		padding: 6rem 0;
+	}
+
+	.dashboard-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		background: rgba(37, 99, 235, 0.1);
+		border: 1px solid rgba(37, 99, 235, 0.2);
+		border-radius: 2rem;
+		padding: 0.5rem 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.badge-text {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--primary-600);
+	}
+
+	.dashboard-title {
+		font-size: 2.5rem;
+		font-weight: 800;
+		line-height: 1.2;
+		color: var(--gray-900);
+		margin-bottom: 1.5rem;
+	}
+
+	.dashboard-description {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--gray-600);
+		margin-bottom: 2rem;
+	}
+
+	.dashboard-features {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.feature-item {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.feature-icon {
+		width: 40px;
+		height: 40px;
+		background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+		border-radius: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.2rem;
+	}
+
+	.feature-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.feature-text strong {
+		color: var(--gray-900);
+		font-weight: 600;
+	}
+
+	.feature-text span {
+		color: var(--gray-600);
+		font-size: 0.9rem;
+	}
+
+	.dashboard-mockup {
+		background: white;
+		border-radius: 1.5rem;
+		border: 1px solid var(--gray-200);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+		padding: 1.5rem;
+		backdrop-filter: blur(20px);
+	}
+
+	.dashboard-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--gray-200);
+	}
+
+	.header-left h3 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--gray-900);
+		margin-bottom: 0.25rem;
+	}
+
+	.header-left p {
+		color: var(--gray-600);
+		font-size: 0.875rem;
+	}
+
+	.notification-dot {
+		width: 24px;
+		height: 24px;
+		background: var(--primary-600);
+		color: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.75rem;
+		font-weight: 600;
+	}
+
+	.stats-row {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.stat-card {
+		padding: 1rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--gray-200);
+	}
+
+	.stat-card.balance {
+		background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+		border-color: rgba(37, 99, 235, 0.2);
+	}
+
+	.stat-card.income {
+		background: rgba(16, 185, 129, 0.05);
+		border-color: rgba(16, 185, 129, 0.2);
+	}
+
+	.stat-card.expenses {
+		background: rgba(239, 68, 68, 0.05);
+		border-color: rgba(239, 68, 68, 0.2);
+	}
+
+	.stat-label {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--gray-600);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		margin-bottom: 0.5rem;
+	}
+
+	.stat-value {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--gray-900);
+		margin-bottom: 0.25rem;
+	}
+
+	.stat-change {
+		font-size: 0.75rem;
+		font-weight: 600;
+	}
+
+	.stat-change.positive {
+		color: var(--secondary-600);
+	}
+
+	.stat-change.negative {
+		color: #EF4444;
+	}
+
+	.chart-section {
+		margin-bottom: 1.5rem;
+	}
+
+	.chart-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.chart-header h4 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--gray-900);
+	}
+
+	.chart-filter {
+		padding: 0.25rem 0.5rem;
+		border: 1px solid var(--gray-300);
+		border-radius: 0.375rem;
+		font-size: 0.75rem;
+		background: white;
+		color: var(--gray-700);
+	}
+
+	.chart-bars {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.bar {
+		position: relative;
+		height: 32px;
+		background: var(--gray-100);
+		border-radius: 0.375rem;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		padding: 0 0.75rem;
+	}
+
+	.bar-fill {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		border-radius: 0.375rem;
+		animation: fillBar 2s ease-out;
+	}
+
+	.bar.food .bar-fill {
+		width: 35%;
+		background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+	}
+
+	.bar.transport .bar-fill {
+		width: 25%;
+		background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+	}
+
+	.bar.entertainment .bar-fill {
+		width: 20%;
+		background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+	}
+
+	.bar.shopping .bar-fill {
+		width: 15%;
+		background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+	}
+
+	.bar.utilities .bar-fill {
+		width: 5%;
+		background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+	}
+
+	.bar-label {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--gray-700);
+		position: relative;
+		z-index: 2;
+	}
+
+	.bar-value {
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--gray-900);
+		margin-left: auto;
+		position: relative;
+		z-index: 2;
+	}
+
+	.insights-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.insight-card {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem;
+		background: var(--gray-50);
+		border: 1px solid var(--gray-200);
+		border-radius: 0.75rem;
+	}
+
+	.insight-card.ai-insight {
+		background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+		border-color: rgba(139, 92, 246, 0.2);
+	}
+
+	.insight-card.goal-insight {
+		background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+		border-color: rgba(16, 185, 129, 0.2);
+	}
+
+	.insight-icon {
+		font-size: 1.2rem;
+	}
+
+	.insight-content {
+		flex: 1;
+	}
+
+	.insight-title {
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--gray-900);
+		margin-bottom: 0.25rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.insight-text {
+		font-size: 0.875rem;
+		color: var(--gray-600);
+	}
+
+	.insight-action {
+		color: var(--gray-400);
+		font-size: 1.2rem;
+	}
+
+	.progress-bar {
+		width: 60px;
+		height: 4px;
+		background: var(--gray-200);
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	.progress-fill {
+		height: 100%;
+		background: linear-gradient(135deg, var(--secondary-600) 0%, #059669 100%);
+		border-radius: 2px;
+		animation: fillProgress 2s ease-out;
+	}
+
+	@keyframes fillBar {
+		from { width: 0; }
+	}
+
+	@keyframes fillProgress {
+		from { width: 0; }
+	}
+
+	@media (max-width: 1024px) {
+		.dashboard-content {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.dashboard-title {
+			font-size: 2rem;
+		}
+
+		.stats-row {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.dashboard-mockup {
+			padding: 1rem;
+		}
+
+		.chart-bars {
+			gap: 0.5rem;
+		}
+
+		.bar {
+			height: 28px;
+		}
+	}
+</style>
