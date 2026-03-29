@@ -1,517 +1,178 @@
 ---
+import { Card, CardTitle, CardDescription, CardContent, CardHeader } from './ui/Card';
+import { Badge } from './ui/Badge';
+import { Button } from './ui/Button';
+import { StatisticDisplay } from './ui/StatisticDisplay';
+import { motion } from 'framer-motion';
+
+const demoMetrics = [
+  {
+    label: "Balance Total",
+    value: "$12,847.50",
+    change: "+10.6%",
+    trend: "up" as const,
+    subtle: false,
+    sparklineAccent: "blue" as const,
+    sparkline: [40, 45, 42, 48, 52, 50, 55],
+  },
+  {
+    label: "Ingresos",
+    value: "$8,500.00",
+    change: "+6.2%",
+    trend: "up" as const,
+    subtle: true,
+    sparklineAccent: "green" as const,
+    sparkline: [30, 32, 35, 33, 38, 40, 42],
+  },
+  {
+    label: "Gastos",
+    value: "$6,266.00",
+    change: "-3.6%",
+    trend: "down" as const,
+    subtle: true,
+    sparklineAccent: "orange" as const,
+    sparkline: [25, 28, 22, 24, 26, 23, 21],
+  }
+];
 ---
 
-<section id="demo" class="dashboard-section">
-	<div class="container">
-		<div class="dashboard-content">
-			<div class="dashboard-info">
-				<div class="badge">
-					<span class="badge-text">🎯 Dashboard en vivo</span>
-				</div>
-				<h2 class="dashboard-title">
-					Visualiza tus finanzas con <span class="gradient-text">analíticas avanzadas</span>
-				</h2>
-				<p class="dashboard-description">
-					Nuestro dashboard inteligente te muestra exactamente dónde va tu dinero, con gráficos interactivos y predicciones basadas en IA.
-				</p>
-				<div class="dashboard-features">
-					<div class="feature-item">
-						<div class="feature-icon">✨</div>
-						<div class="feature-text">
-							<strong>Predicciones IA</strong>
-							<span>Proyecciones de gastos futuras</span>
-						</div>
-					</div>
-					<div class="feature-item">
-						<div class="feature-icon">📊</div>
-						<div class="feature-text">
-							<strong>Gráficos interactivos</strong>
-							<span>Visualización en tiempo real</span>
-						</div>
-					</div>
-					<div class="feature-item">
-						<div class="feature-icon">🔍</div>
-						<div class="feature-text">
-							<strong>Análisis detallado</strong>
-							<span>Insights personalizados</span>
-						</div>
-					</div>
-				</div>
-				<a href="#" class="btn btn-primary">Probar dashboard</a>
-			</div>
-			<div class="dashboard-visual">
-				<div class="dashboard-mockup glass-card">
-					<div class="dashboard-header">
-						<div class="header-left">
-							<h3>Dashboard Financiero</h3>
-							<p>Marzo 2024</p>
-						</div>
-						<div class="header-right">
-							<div class="notification-dot">3</div>
-						</div>
-					</div>
-					
-					<div class="stats-row">
-						<div class="stat-card balance">
-							<div class="stat-label">Balance Total</div>
-							<div class="stat-value">$12,847.50</div>
-							<div class="stat-change positive">+$1,234 (+10.6%)</div>
-						</div>
-						<div class="stat-card income">
-							<div class="stat-label">Ingresos</div>
-							<div class="stat-value">$8,500</div>
-							<div class="stat-change positive">+$500 (+6.2%)</div>
-						</div>
-						<div class="stat-card expenses">
-							<div class="stat-label">Gastos</div>
-							<div class="stat-value">$6,266</div>
-							<div class="stat-change negative">-$234 (-3.6%)</div>
-						</div>
-					</div>
+<section id="demo" class="py-24 bg-surface-secondary/20 relative overflow-hidden">
+  <!-- Decorative background element -->
+  <div class="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-accent-blue/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+  
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left side: Information -->
+      <div class="flex flex-col items-start gap-8">
+        <Badge client:load variant="primary" size="md" dot className="font-bold">
+          🎯 Dashboard en vivo
+        </Badge>
+        
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-text-primary leading-[1.2]">
+          Visualiza tus finanzas con <br class="hidden md:block" />
+          <span class="text-accent-blue font-black underline decoration-accent-blue/20 underline-offset-8">analíticas avanzadas</span>
+        </h2>
+        
+        <p class="text-xl text-text-secondary leading-relaxed max-w-lg">
+          Nuestro dashboard inteligente te muestra exactamente dónde va tu dinero, con gráficos interactivos y predicciones automáticas basadas en tus hábitos.
+        </p>
 
-					<div class="chart-section">
-						<div class="chart-header">
-							<h4>Gastos por Categoría</h4>
-							<select class="chart-filter">
-								<option>Este mes</option>
-							</select>
-						</div>
-						<div class="chart-placeholder">
-							<div class="chart-bars">
-								<div class="bar food" data-percentage="35%">
-									<div class="bar-fill"></div>
-									<div class="bar-label">Comida</div>
-									<div class="bar-value">$2,193</div>
-								</div>
-								<div class="bar transport" data-percentage="25%">
-									<div class="bar-fill"></div>
-									<div class="bar-label">Transporte</div>
-									<div class="bar-value">$1,567</div>
-								</div>
-								<div class="bar entertainment" data-percentage="20%">
-									<div class="bar-fill"></div>
-									<div class="bar-label">Ocio</div>
-									<div class="bar-value">$1,253</div>
-								</div>
-								<div class="bar shopping" data-percentage="15%">
-									<div class="bar-fill"></div>
-									<div class="bar-label">Compras</div>
-									<div class="bar-value">$940</div>
-								</div>
-								<div class="bar utilities" data-percentage="5%">
-									<div class="bar-fill"></div>
-									<div class="bar-label">Servicios</div>
-									<div class="bar-value">$313</div>
-								</div>
-							</div>
-						</div>
-					</div>
+        <div class="space-y-6 w-full max-w-md">
+          <div class="flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-2xl bg-surface-secondary border border-border-secondary shadow-apple-sm flex items-center justify-center text-xl group-hover:scale-110 transition-apple">✨</div>
+            <div>
+              <p class="font-bold text-text-primary">Predicciones IA</p>
+              <p class="text-sm text-text-tertiary">Proyecciones de gastos futuras personalizadas.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-2xl bg-surface-secondary border border-border-secondary shadow-apple-sm flex items-center justify-center text-xl group-hover:scale-110 transition-apple">📊</div>
+            <div>
+              <p class="font-bold text-text-primary">Gráficos interactivos</p>
+              <p class="text-sm text-text-tertiary">Visualización táctil de cada categoría de gasto.</p>
+            </div>
+          </div>
 
-					<div class="insights-section">
-						<div class="insight-card ai-insight">
-							<div class="insight-icon">🤖</div>
-							<div class="insight-content">
-								<div class="insight-title">Consejo de IA</div>
-								<div class="insight-text">Podrías ahorrar $150 reduciendo gastos en comida este mes</div>
-							</div>
-							<div class="insight-action">→</div>
-						</div>
-						<div class="insight-card goal-insight">
-							<div class="insight-icon">🎯</div>
-							<div class="insight-content">
-								<div class="insight-title">Meta de Ahorro</div>
-								<div class="insight-text">Vas 75% hacia tu objetivo de $5,000</div>
-							</div>
-							<div class="progress-bar">
-								<div class="progress-fill" style="width: 75%"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+          <div class="flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-2xl bg-surface-secondary border border-border-secondary shadow-apple-sm flex items-center justify-center text-xl group-hover:scale-110 transition-apple">🔍</div>
+            <div>
+              <p class="font-bold text-text-primary">Análisis detallado</p>
+              <p class="text-sm text-text-tertiary">Insights profundos para optimizar tu ahorro.</p>
+            </div>
+          </div>
+        </div>
+
+        <Button client:load variant="primary" size="lg" className="mt-4 shadow-apple-md">
+          Probar dashboard interactivo
+        </Button>
+      </div>
+
+      <!-- Right side: Mockup -->
+      <div class="relative group">
+        <!-- Mockup Container -->
+        <Card client:load variant="glass" padding="none" className="overflow-hidden border-border-secondary/60 shadow-apple-xl ring-1 ring-white/10 translate-y-4 group-hover:translate-y-0 transition-apple-slow bg-surface-primary/40">
+          <!-- Toolbar 스타일 헤더 -->
+          <div class="bg-surface-secondary border-b border-border-secondary p-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="flex gap-1.5 mr-4">
+                <div class="w-3 h-3 rounded-full bg-status-error/40"></div>
+                <div class="w-3 h-3 rounded-full bg-status-warning/40"></div>
+                <div class="w-3 h-3 rounded-full bg-status-success/40"></div>
+              </div>
+              <div>
+                <CardTitle className="text-sm mb-0! font-bold">Capitalia Dashboard</CardTitle>
+                <CardDescription className="text-[10px] uppercase tracking-widest font-bold opacity-60">Marzo 2024</CardDescription>
+              </div>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue text-xs font-bold">3</div>
+          </div>
+
+          <div class="p-6 space-y-8">
+            <!-- Stats Grid -->
+            <StatisticDisplay client:load metrics={demoMetrics} columns={1} size="sm" variant="soft" gap="sm" className="lg:grid-cols-3" />
+
+            <!-- Category Chart Mockup -->
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                 <h4 class="text-sm font-bold text-text-primary uppercase tracking-wider">Gastos por Categoría</h4>
+                 <Badge client:load size="sm" variant="default" className="text-[10px] font-bold">ESTE MES</Badge>
+              </div>
+              
+              <div class="space-y-3">
+                {[
+                  { label: "Comida", val: "$2,193", perc: 35, color: "bg-status-warning" },
+                  { label: "Transporte", val: "$1,567", perc: 25, color: "bg-accent-blue" },
+                  { label: "Ocio", val: "$1,253", perc: 20, color: "bg-accent-purple" },
+                  { label: "Compras", val: "$940", perc: 15, color: "bg-status-error" }
+                ].map(item => (
+                  <div class="group/bar">
+                    <div class="flex justify-between text-xs font-medium mb-1.5">
+                      <span class="text-text-secondary">{item.label}</span>
+                      <span class="text-text-primary font-bold">{item.val}</span>
+                    </div>
+                    <div class="h-2 w-full bg-surface-secondary rounded-full overflow-hidden">
+                      <div class={`h-full rounded-full ${item.color} group-hover/bar:brightness-110 transition-all duration-700`} style={{ width: `${item.perc}%` }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Insights Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <Card client:load variant="flat" padding="sm" className="bg-accent-purple/5 border-accent-purple/10">
+                  <div class="flex items-center gap-3">
+                    <div class="text-xl">🤖</div>
+                    <div class="flex-1">
+                      <p class="text-[10px] font-bold text-accent-purple uppercase tracking-tight">IA Insight</p>
+                      <p class="text-xs text-text-primary font-medium leading-tight">Ahorra $150 optimizando gastos en comida.</p>
+                    </div>
+                  </div>
+               </Card>
+
+               <Card client:load variant="flat" padding="sm" className="bg-status-success/5 border-status-success/10">
+                  <div class="flex items-start gap-3">
+                    <div class="text-xl">🎯</div>
+                    <div class="flex-1">
+                      <p class="text-[10px] font-bold text-status-success uppercase tracking-tight">Meta de Ahorro</p>
+                      <div class="flex items-center justify-between mb-1">
+                         <span class="text-[10px] font-bold text-text-primary">75%</span>
+                         <span class="text-[10px] text-text-tertiary">$5,000</span>
+                      </div>
+                      <div class="h-1 w-full bg-surface-secondary rounded-full overflow-hidden">
+                        <div class="h-full bg-status-success rounded-full" style="width: 75%"></div>
+                      </div>
+                    </div>
+                  </div>
+               </Card>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Shadow Glow behind mockup -->
+        <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[90%] h-20 bg-accent-blue/10 blur-[80px] -z-10 rounded-full"></div>
+      </div>
+    </div>
+  </div>
 </section>
-
-<style>
-	.dashboard-section {
-		background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
-		padding: 6rem 0;
-	}
-
-	.dashboard-content {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
-		align-items: center;
-	}
-
-	.badge {
-		display: inline-flex;
-		align-items: center;
-		background: rgba(37, 99, 235, 0.1);
-		border: 1px solid rgba(37, 99, 235, 0.2);
-		border-radius: 2rem;
-		padding: 0.5rem 1rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.badge-text {
-		font-size: 0.875rem;
-		font-weight: 600;
-		color: var(--primary-600);
-	}
-
-	.dashboard-title {
-		font-size: 2.5rem;
-		font-weight: 800;
-		line-height: 1.2;
-		color: var(--gray-900);
-		margin-bottom: 1.5rem;
-	}
-
-	.dashboard-description {
-		font-size: 1.1rem;
-		line-height: 1.6;
-		color: var(--gray-600);
-		margin-bottom: 2rem;
-	}
-
-	.dashboard-features {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		margin-bottom: 2rem;
-	}
-
-	.feature-item {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.feature-icon {
-		width: 40px;
-		height: 40px;
-		background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
-		border-radius: 0.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 1.2rem;
-	}
-
-	.feature-text {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.feature-text strong {
-		color: var(--gray-900);
-		font-weight: 600;
-	}
-
-	.feature-text span {
-		color: var(--gray-600);
-		font-size: 0.9rem;
-	}
-
-	.dashboard-mockup {
-		background: white;
-		border-radius: 1.5rem;
-		border: 1px solid var(--gray-200);
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-		padding: 1.5rem;
-		backdrop-filter: blur(20px);
-	}
-
-	.dashboard-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 1.5rem;
-		padding-bottom: 1rem;
-		border-bottom: 1px solid var(--gray-200);
-	}
-
-	.header-left h3 {
-		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--gray-900);
-		margin-bottom: 0.25rem;
-	}
-
-	.header-left p {
-		color: var(--gray-600);
-		font-size: 0.875rem;
-	}
-
-	.notification-dot {
-		width: 24px;
-		height: 24px;
-		background: var(--primary-600);
-		color: white;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 0.75rem;
-		font-weight: 600;
-	}
-
-	.stats-row {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.stat-card {
-		padding: 1rem;
-		border-radius: 0.75rem;
-		border: 1px solid var(--gray-200);
-	}
-
-	.stat-card.balance {
-		background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
-		border-color: rgba(37, 99, 235, 0.2);
-	}
-
-	.stat-card.income {
-		background: rgba(16, 185, 129, 0.05);
-		border-color: rgba(16, 185, 129, 0.2);
-	}
-
-	.stat-card.expenses {
-		background: rgba(239, 68, 68, 0.05);
-		border-color: rgba(239, 68, 68, 0.2);
-	}
-
-	.stat-label {
-		font-size: 0.75rem;
-		font-weight: 500;
-		color: var(--gray-600);
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		margin-bottom: 0.5rem;
-	}
-
-	.stat-value {
-		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--gray-900);
-		margin-bottom: 0.25rem;
-	}
-
-	.stat-change {
-		font-size: 0.75rem;
-		font-weight: 600;
-	}
-
-	.stat-change.positive {
-		color: var(--secondary-600);
-	}
-
-	.stat-change.negative {
-		color: #EF4444;
-	}
-
-	.chart-section {
-		margin-bottom: 1.5rem;
-	}
-
-	.chart-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 1rem;
-	}
-
-	.chart-header h4 {
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--gray-900);
-	}
-
-	.chart-filter {
-		padding: 0.25rem 0.5rem;
-		border: 1px solid var(--gray-300);
-		border-radius: 0.375rem;
-		font-size: 0.75rem;
-		background: white;
-		color: var(--gray-700);
-	}
-
-	.chart-bars {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.bar {
-		position: relative;
-		height: 32px;
-		background: var(--gray-100);
-		border-radius: 0.375rem;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		padding: 0 0.75rem;
-	}
-
-	.bar-fill {
-		position: absolute;
-		left: 0;
-		top: 0;
-		height: 100%;
-		border-radius: 0.375rem;
-		animation: fillBar 2s ease-out;
-	}
-
-	.bar.food .bar-fill {
-		width: 35%;
-		background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-	}
-
-	.bar.transport .bar-fill {
-		width: 25%;
-		background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
-	}
-
-	.bar.entertainment .bar-fill {
-		width: 20%;
-		background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-	}
-
-	.bar.shopping .bar-fill {
-		width: 15%;
-		background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
-	}
-
-	.bar.utilities .bar-fill {
-		width: 5%;
-		background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
-	}
-
-	.bar-label {
-		font-size: 0.75rem;
-		font-weight: 500;
-		color: var(--gray-700);
-		position: relative;
-		z-index: 2;
-	}
-
-	.bar-value {
-		font-size: 0.75rem;
-		font-weight: 600;
-		color: var(--gray-900);
-		margin-left: auto;
-		position: relative;
-		z-index: 2;
-	}
-
-	.insights-section {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.insight-card {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 0.75rem;
-		background: var(--gray-50);
-		border: 1px solid var(--gray-200);
-		border-radius: 0.75rem;
-	}
-
-	.insight-card.ai-insight {
-		background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
-		border-color: rgba(139, 92, 246, 0.2);
-	}
-
-	.insight-card.goal-insight {
-		background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
-		border-color: rgba(16, 185, 129, 0.2);
-	}
-
-	.insight-icon {
-		font-size: 1.2rem;
-	}
-
-	.insight-content {
-		flex: 1;
-	}
-
-	.insight-title {
-		font-size: 0.75rem;
-		font-weight: 600;
-		color: var(--gray-900);
-		margin-bottom: 0.25rem;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
-	.insight-text {
-		font-size: 0.875rem;
-		color: var(--gray-600);
-	}
-
-	.insight-action {
-		color: var(--gray-400);
-		font-size: 1.2rem;
-	}
-
-	.progress-bar {
-		width: 60px;
-		height: 4px;
-		background: var(--gray-200);
-		border-radius: 2px;
-		overflow: hidden;
-	}
-
-	.progress-fill {
-		height: 100%;
-		background: linear-gradient(135deg, var(--secondary-600) 0%, #059669 100%);
-		border-radius: 2px;
-		animation: fillProgress 2s ease-out;
-	}
-
-	@keyframes fillBar {
-		from { width: 0; }
-	}
-
-	@keyframes fillProgress {
-		from { width: 0; }
-	}
-
-	@media (max-width: 1024px) {
-		.dashboard-content {
-			grid-template-columns: 1fr;
-			gap: 3rem;
-		}
-
-		.dashboard-title {
-			font-size: 2rem;
-		}
-
-		.stats-row {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.dashboard-mockup {
-			padding: 1rem;
-		}
-
-		.chart-bars {
-			gap: 0.5rem;
-		}
-
-		.bar {
-			height: 28px;
-		}
-	}
-</style>

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* 
+  En Tailwind 4, puedes seguir usando tu archivo de configuración antiguo 
+  mediante la directiva @config. Esto asegura que sigas teniendo tus colores 
+  personalizados como 'apple-blue' sin tener que migrarlos a variables CSS aún.
+*/
+@config "../../tailwind.config.mjs";
