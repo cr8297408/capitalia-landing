@@ -19,12 +19,17 @@ import { motion } from 'framer-motion';
     <NavBarContent align="center" className="hidden md:flex">
       <NavBarItem active href="#features">Características</NavBarItem>
       <NavBarItem href="#pricing">Precios</NavBarItem>
-      <NavBarItem href="#contact">Contacto</NavBarItem>
+      <NavBarItem href="mailto:coder4021@gmail.com">Contacto</NavBarItem>
     </NavBarContent>
     
-    <NavBarContent align="right">
+    <NavBarContent align="right" className="flex items-center gap-4">
+      <a href="/comprar" class="hidden md:block">
+        <Button client:load variant="ghost" size="sm" className="font-bold text-accent-blue! border-accent-blue/20">
+          Comprar Proyecto
+        </Button>
+      </a>
       <a href="https://play.google.com/apps/testing/com.cr8297408.capitalia" target="_blank" rel="noopener noreferrer">
-        <Button client:load variant="primary" size="sm" className="hidden sm:flex">
+        <Button client:load variant="primary" size="sm" className="hidden sm:flex px-6">
           Descargar App
         </Button>
       </a>

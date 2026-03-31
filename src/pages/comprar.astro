@@ -1,809 +1,363 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import {
+  NavBar,
+  NavBarBrand,
+  NavBarContent,
+  NavBarItem,
+} from "../components/ui/NavBar";
+import { Card, CardContent } from "../components/ui/Card";
+import { Button } from "../components/ui/Button";
+import { Badge } from "../components/ui/Badge";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Adquiere el Proyecto Capitalia - Solución Completa de Finanzas">
-	<main class="purchase-page">
-		<div class="container">
-			<div class="purchase-content">
-				<div class="purchase-header">
-					<div class="back-button">
-						<a href="/" class="btn-back">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-							<span>Volver</span>
-						</a>
-					</div>
-					<div class="purchase-hero">
-						<div class="app-icon">💰</div>
-						<h1 class="purchase-title">Adquiere el Proyecto Completo</h1>
-						<p class="purchase-subtitle">
-							Solución integral de finanzas personales lista para lanzar. Código fuente, arquitectura y documentación incluidos.
-						</p>
-					</div>
-				</div>
+  <main class="relative min-h-screen pt-20 overflow-hidden bg-surface-primary">
+    <!-- Mesh Gradient Background -->
+    <div
+      class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(0,102,204,0.08),transparent_50%),radial-gradient(circle_at_100%_100%,rgba(0,102,204,0.05),transparent_50%)]"
+    >
+    </div>
 
-				<div class="value-proposition">
-					<div class="value-grid">
-						<div class="value-card">
-							<div class="value-icon">📱</div>
-							<h3>App Móvil Completa</h3>
-							<p>Aplicación React Native con Expo, navegación avanzada y funcionalidades offline-first</p>
-						</div>
-						<div class="value-card">
-							<div class="value-icon">🏗️</div>
-							<h3>Arquitectura Enterprise</h3>
-							<p>Código limpio con Scope Rule Pattern, TypeScript estricto y documentación completa</p>
-						</div>
-						<div class="value-card">
-							<div class="value-icon">💳</div>
-							<h3>Sistema de Pagos</h3>
-							<p>Integración completa con Stripe, suscripciones y gestión de facturación implementada</p>
-						</div>
-						<div class="value-card">
-							<div class="value-icon">🚀</div>
-							<h3>Listo para Producción</h3>
-							<p>Base de datos configurada, autenticación, notificaciones y analíticas implementadas</p>
-						</div>
-					</div>
-				</div>
+    <!-- NavBar -->
+    <NavBar client:load>
+      <NavBarBrand href="/" className="flex items-center gap-2">
+        <span class="text-2xl">💰</span>
+        <span class="font-bold tracking-tight text-text-primary">Capitalia</span
+        >
+      </NavBarBrand>
 
-				<div class="technical-specs">
-					<h2 class="specs-title">Especificaciones Técnicas</h2>
-					<div class="specs-grid">
-						<div class="spec-category">
-							<h3>Frontend Mobile</h3>
-							<ul>
-								<li>React Native + Expo SDK</li>
-								<li>TypeScript estricto</li>
-								<li>React Navigation v6</li>
-								<li>Shadcn UI adaptado</li>
-								<li>Animaciones Reanimated</li>
-								<li>Offline-first con SQLite</li>
-							</ul>
-						</div>
-						<div class="spec-category">
-							<h3>Backend & Database</h3>
-							<ul>
-								<li>Supabase PostgreSQL</li>
-								<li>Row Level Security (RLS)</li>
-								<li>Edge Functions</li>
-								<li>Realtime subscriptions</li>
-								<li>Migraciones completas</li>
-								<li>Backup automático</li>
-							</ul>
-						</div>
-						<div class="spec-category">
-							<h3>Pagos & Monetización</h3>
-							<ul>
-								<li>Stripe integración completa</li>
-								<li>Webhooks configurados</li>
-								<li>Planes de suscripción</li>
-								<li>Portal de facturación</li>
-								<li>Límites premium</li>
-								<li>Métricas de conversión</li>
-							</ul>
-						</div>
-						<div class="spec-category">
-							<h3>Funcionalidades</h3>
-							<ul>
-								<li>Gestión de presupuestos</li>
-								<li>Tracking de transacciones</li>
-								<li>Recomendaciones con IA</li>
-								<li>Metas financieras</li>
-								<li>Notificaciones push</li>
-								<li>Exportación de datos</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+      <NavBarContent align="center" className="hidden md:flex">
+        <NavBarItem href="/#features">Características</NavBarItem>
+        <NavBarItem href="/#pricing">Precios</NavBarItem>
+        <NavBarItem href="mailto:coder4021@gmail.com">Contacto</NavBarItem>
+      </NavBarContent>
 
-				<div class="package-details">
-					<h2 class="package-title">¿Qué Incluye el Proyecto?</h2>
-					<div class="package-grid">
-						<div class="package-item">
-							<div class="package-icon">📦</div>
-							<div class="package-content">
-								<h4>Código Fuente Completo</h4>
-								<p>Acceso total al repositorio con historial de commits, arquitectura documentada y mejores prácticas implementadas</p>
-							</div>
-						</div>
-						<div class="package-item">
-							<div class="package-icon">📚</div>
-							<div class="package-content">
-								<h4>Documentación Técnica</h4>
-								<p>Guías de instalación, deployment, arquitectura del sistema y documentación de APIs completa</p>
-							</div>
-						</div>
-						<div class="package-item">
-							<div class="package-icon">🎨</div>
-							<div class="package-content">
-								<h4>Diseño y Assets</h4>
-								<p>Figma files, iconografía, paleta de colores, componentes UI y guía de marca completa</p>
-							</div>
-						</div>
-						<div class="package-item">
-							<div class="package-icon">⚙️</div>
-							<div class="package-content">
-								<h4>Configuración DevOps</h4>
-								<p>Scripts de deployment, CI/CD configurado, variables de entorno y guías de producción</p>
-							</div>
-						</div>
-						<div class="package-item">
-							<div class="package-icon">🔧</div>
-							<div class="package-content">
-								<h4>Soporte Técnico</h4>
-								<p>30 días de soporte técnico incluido para instalación, configuración y resolución de dudas</p>
-							</div>
-						</div>
-						<div class="package-item">
-							<div class="package-icon">📈</div>
-							<div class="package-content">
-								<h4>Plan de Monetización</h4>
-								<p>Estrategia de precios, análisis de mercado y recomendaciones para maximizar ingresos</p>
-							</div>
-						</div>
-					</div>
-				</div>
+      <NavBarContent align="right" className="flex items-center gap-4">
+        <a
+          href="https://play.google.com/apps/testing/com.cr8297408.capitalia"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button client:load variant="primary" size="sm" className="px-6">
+            Descargar App
+          </Button>
+        </a>
+      </NavBarContent>
+    </NavBar>
 
-				<div class="investment-section">
-					<div class="investment-card">
-						<div class="investment-header">
-							<h2>Inversión del Proyecto</h2>
-							<div class="price-container">
-								<div class="original-price">Valor de desarrollo: $50,000+</div>
-								<div class="current-price">
-									<span class="currency">$</span>
-									<span class="amount">15,000</span>
-									<span class="period">USD</span>
-								</div>
-								<div class="savings">Ahorra $35,000+ en desarrollo</div>
-							</div>
-						</div>
-						
-						<div class="investment-benefits">
-							<div class="benefit">
-								<svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-								<span><strong>Licencia comercial completa</strong> - Sin restricciones de uso</span>
-							</div>
-							<div class="benefit">
-								<svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-								<span><strong>Código fuente sin ofuscación</strong> - Modificable al 100%</span>
-							</div>
-							<div class="benefit">
-								<svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-								<span><strong>Transferencia completa de propiedad</strong> - Es 100% tuyo</span>
-							</div>
-							<div class="benefit">
-								<svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-								<span><strong>Configuración de producción</strong> - Listo para App Store</span>
-							</div>
-							<div class="benefit">
-								<svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-								<span><strong>Documentación empresarial</strong> - Para tu equipo técnico</span>
-							</div>
-							<div class="benefit">
-								<svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-								<span><strong>Soporte post-venta</strong> - 30 días de asistencia técnica</span>
-							</div>
-						</div>
+    <div class="max-w-7xl mx-auto px-6 pt-20 pb-32">
+      <!-- Purchase Hero -->
+      <div class="flex flex-col items-center text-center gap-8 mb-24">
+        <Badge
+          client:load
+          variant="primary"
+          size="lg"
+          className="font-black tracking-widest px-6 shadow-apple-sm"
+        >
+          🚀 OPORTUNIDAD EMPRESARIAL
+        </Badge>
 
-						<div class="contact-section">
-							<h3>¿Interesado en adquirir el proyecto?</h3>
-							<p>Contacta conmigo para una demostración personalizada y discutir los detalles de la transferencia.</p>
-							
-							<div class="contact-buttons">
-								<a href="mailto:coder4021@gmail.com?subject=Interés en adquirir Capitalia&body=Hola, estoy interesado en adquirir el proyecto completo de Capitalia. Me gustaría agendar una demostración." class="btn-contact-primary">
-									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
-										<polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
-									</svg>
-									<span>Contactar por Email</span>
-								</a>
-								<a href="https://wa.me/+573133711108?text=Hola, estoy interesado en adquirir el proyecto Capitalia" class="btn-contact-secondary">
-									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.60557 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-									</svg>
-									<span>WhatsApp</span>
-								</a>
-							</div>
-						</div>
+        <h1
+          class="text-5xl md:text-7xl font-extrabold tracking-tight text-text-primary leading-[1.1] max-w-4xl"
+        >
+          Adquiere el <span class="text-accent-blue">Proyecto Completo</span>
+        </h1>
 
-						<div class="guarantee">
-							<div class="guarantee-icon">🛡️</div>
-							<div class="guarantee-text">
-								<strong>Garantía de satisfacción</strong>
-								<span>Si el proyecto no cumple con las especificaciones descritas, reembolso completo</span>
-							</div>
-						</div>
-					</div>
-				</div>
+        <p
+          class="text-xl md:text-2xl text-text-secondary leading-relaxed max-w-2xl font-medium"
+        >
+          Solución integral de finanzas personales lista para lanzar. Código
+          fuente, arquitectura enterprise y documentación técnica incluidos.
+        </p>
 
-				<div class="why-buy-section">
-					<h2>¿Por qué adquirir este proyecto?</h2>
-					<div class="reasons-grid">
-						<div class="reason-card">
-							<div class="reason-number">01</div>
-							<h3>Ahorro de Tiempo</h3>
-							<p>Evita 6-12 meses de desarrollo. El proyecto está completo y listo para personalizar según tu marca.</p>
-						</div>
-						<div class="reason-card">
-							<div class="reason-number">02</div>
-							<h3>Arquitectura Probada</h3>
-							<p>Código limpio, escalable y mantenible siguiendo las mejores prácticas de la industria.</p>
-						</div>
-						<div class="reason-card">
-							<div class="reason-number">03</div>
-							<h3>Monetización Lista</h3>
-							<p>Sistema de suscripciones con Stripe completamente implementado y probado.</p>
-						</div>
-						<div class="reason-card">
-							<div class="reason-number">04</div>
-							<h3>Mercado Validado</h3>
-							<p>Las apps de finanzas personales tienen alta demanda y excelente potencial de monetización.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+          <a
+            href="mailto:coder4021@gmail.com?subject=Interés en adquirir Capitalia&body=Hola, estoy interesado en adquirir el proyecto completo de Capitalia. Me gustaría agendar una demostración."
+          >
+            <Button
+              client:load
+              variant="primary"
+              size="lg"
+              className="px-10 h-14 text-lg"
+            >
+              Solicitar Demostración
+            </Button>
+          </a>
+          <a href="#investment">
+            <Button
+              client:load
+              variant="secondary"
+              size="lg"
+              className="px-10 h-14 text-lg bg-surface-secondary/50 border-border-secondary/50"
+            >
+              Ver Inversión
+            </Button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Value Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+        <Card
+          client:load
+          variant="flat"
+          className="bg-surface-secondary/30 border-border-secondary/50 hover:border-accent-blue/30 transition-apple-lg"
+        >
+          <CardContent className="p-8 text-center space-y-4">
+            <div class="text-4xl mb-2">📱</div>
+            <h3 class="text-xl font-bold text-text-primary">
+              App Móvil Completa
+            </h3>
+            <p class="text-sm text-text-secondary leading-relaxed">
+              React Native con Expo, navegación avanzada y funcionalidades
+              offline-first implementadas.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card
+          client:load
+          variant="flat"
+          className="bg-surface-secondary/30 border-border-secondary/50 hover:border-accent-blue/30 transition-apple-lg"
+        >
+          <CardContent className="p-8 text-center space-y-4">
+            <div class="text-4xl mb-2">🏗️</div>
+            <h3 class="text-xl font-bold text-text-primary">
+              Arquitectura Enterprise
+            </h3>
+            <p class="text-sm text-text-secondary leading-relaxed">
+              Código limpio con Scope Rule Pattern, TypeScript estricto y
+              documentación técnica completa.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card
+          client:load
+          variant="flat"
+          className="bg-surface-secondary/30 border-border-secondary/50 hover:border-accent-blue/30 transition-apple-lg"
+        >
+          <CardContent className="p-8 text-center space-y-4">
+            <div class="text-4xl mb-2">💳</div>
+            <h3 class="text-xl font-bold text-text-primary">
+              Sistema de Pagos
+            </h3>
+            <p class="text-sm text-text-secondary leading-relaxed">
+              Integración robusta con Stripe/Wompi, suscripciones y gestión de
+              facturación automatizada.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card
+          client:load
+          variant="flat"
+          className="bg-surface-secondary/30 border-border-secondary/50 hover:border-accent-blue/30 transition-apple-lg"
+        >
+          <CardContent className="p-8 text-center space-y-4">
+            <div class="text-4xl mb-2">🚀</div>
+            <h3 class="text-xl font-bold text-text-primary">
+              Production Ready
+            </h3>
+            <p class="text-sm text-text-secondary leading-relaxed">
+              Base de datos configurada, auth, notificaciones push y analíticas
+              listas para el despliegue.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <!-- Technical Specifications Section -->
+      <section class="mb-32">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-text-primary mb-4">
+            Especificaciones Técnicas
+          </h2>
+          <p class="text-text-secondary">
+            Tecnología de última generación diseñada para escalar.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Card
+            client:load
+            variant="elevated"
+            className="bg-surface-secondary/20 border-border-secondary/30"
+          >
+            <CardContent className="p-10">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="p-3 bg-accent-blue/10 rounded-2xl text-accent-blue">
+                  ✨
+                </div>
+                <h3 class="text-2xl font-bold text-text-primary">
+                  Frontend Mobile
+                </h3>
+              </div>
+              <ul class="space-y-4">
+                {
+                  [
+                    "React Native + Expo SDK 50+",
+                    "TypeScript estricto",
+                    "React Navigation v6",
+                    "Shadcn UI adaptado para Mobile",
+                    "Animaciones Reanimated & Framer Motion",
+                    "Offline-first con SQLite nativo",
+                  ].map((spec) => (
+                    <li class="flex items-center gap-3 text-text-secondary text-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                      {spec}
+                    </li>
+                  ))
+                }
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card
+            client:load
+            variant="elevated"
+            className="bg-surface-secondary/20 border-border-secondary/30"
+          >
+            <CardContent className="p-10">
+              <div class="flex items-center gap-4 mb-8">
+                <div
+                  class="p-3 bg-status-success/10 rounded-2xl text-status-success"
+                >
+                  🔐
+                </div>
+                <h3 class="text-2xl font-bold text-text-primary">
+                  Backend & Database
+                </h3>
+              </div>
+              <ul class="space-y-4">
+                {
+                  [
+                    "Supabase PostgreSQL (Self-hosted ready)",
+                    "Row Level Security (RLS) configurado",
+                    "Edge Functions en Deno",
+                    "Realtime Channel subscriptions",
+                    "Sistema de migraciones automatizado",
+                    "Backup automático y escalable",
+                  ].map((spec) => (
+                    <li class="flex items-center gap-3 text-text-secondary text-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-status-success" />
+                      {spec}
+                    </li>
+                  ))
+                }
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <!-- Investment Card -->
+      <section id="investment" class="max-w-4xl mx-auto mb-32">
+        <Card
+          client:load
+          variant="elevated"
+          className="relative overflow-hidden border-2 border-accent-blue ring-4 ring-accent-blue/10 shadow-apple-2xl"
+        >
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-accent-blue/5 blur-[80px] rounded-full -mr-32 -mt-32"
+          >
+          </div>
+
+          <CardContent className="p-12 md:p-20 text-center">
+            <h2 class="text-3xl md:text-5xl font-black text-text-primary mb-2">
+              Inversión del Proyecto
+            </h2>
+            <p
+              class="text-text-tertiary font-bold uppercase tracking-[0.2em] text-xs mb-12"
+            >
+              FULL SOURCE CODE LICENSE
+            </p>
+
+            <div class="flex flex-col items-center gap-2 mb-12">
+              <span class="text-lg text-text-tertiary line-through font-medium"
+                >Valor de desarrollo: $50,000+ USD</span
+              >
+              <div class="flex items-baseline gap-1">
+                <span class="text-2xl font-bold text-accent-blue">$</span>
+                <span
+                  class="text-7xl font-black text-text-primary tracking-tighter"
+                  >15,000</span
+                >
+                <span
+                  class="text-xl font-bold text-text-tertiary uppercase ml-2"
+                  >USD</span
+                >
+              </div>
+              <Badge
+                client:load
+                variant="success"
+                size="md"
+                className="mt-4 font-bold">AHORRA $35,000+ EN TRABAJO</Badge
+              >
+            </div>
+
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-2xl mx-auto mb-16"
+            >
+              {
+                [
+                  "Licencia comercial completa",
+                  "Código fuente 100% editable",
+                  "Transferencia de propiedad GIT",
+                  "Configuración de producción",
+                  "Documentación empresarial",
+                  "30 días de soporte post-venta",
+                ].map((benefit) => (
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full bg-status-success/10 flex items-center justify-center text-status-success text-xs">
+                      ✓
+                    </div>
+                    <span class="text-sm font-medium text-text-secondary">
+                      {benefit}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="mailto:coder4021@gmail.com?subject=Adquisición Capitalia"
+                class="flex-1"
+              >
+                <Button
+                  client:load
+                  variant="primary"
+                  className="w-full h-16 text-lg font-bold shadow-apple-lg"
+                >
+                  Contactar por Email
+                </Button>
+              </a>
+              <a
+                href="https://wa.me/+573133711108?text=Hola, estoy interesado en adquirir el proyecto Capitalia"
+                class="flex-1"
+              >
+                <Button
+                  client:load
+                  variant="secondary"
+                  className="w-full h-16 text-lg font-bold border-status-success/20 text-status-success! hover:bg-status-success/5"
+                >
+                  WhatsApp Directo
+                </Button>
+              </a>
+            </div>
+
+            <p class="mt-8 text-xs text-text-tertiary font-medium">
+              * El precio incluye transferencia de dominio y configuración
+              inicial en tu servidor CubePath.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+    </div>
+
+    <Footer />
+  </main>
 </Layout>
-
-<style>
-	.purchase-page {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		min-height: 100vh;
-		color: white;
-		padding: 2rem 0;
-	}
-
-	.purchase-content {
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	.purchase-header {
-		text-align: center;
-		margin-bottom: 4rem;
-	}
-
-	.back-button {
-		text-align: left;
-		margin-bottom: 2rem;
-	}
-
-	.btn-back {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: rgba(255, 255, 255, 0.8);
-		text-decoration: none;
-		font-weight: 500;
-		transition: all 0.2s ease;
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.btn-back:hover {
-		color: white;
-		background: rgba(255, 255, 255, 0.2);
-		transform: translateX(-2px);
-	}
-
-	.purchase-hero {
-		text-align: center;
-	}
-
-	.app-icon {
-		font-size: 4rem;
-		margin-bottom: 1rem;
-		display: inline-block;
-		background: rgba(255, 255, 255, 0.1);
-		padding: 1rem;
-		border-radius: 1rem;
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.purchase-title {
-		font-size: 3rem;
-		font-weight: 800;
-		margin-bottom: 1rem;
-		line-height: 1.2;
-	}
-
-	.purchase-subtitle {
-		font-size: 1.2rem;
-		opacity: 0.9;
-		max-width: 700px;
-		margin: 0 auto;
-		line-height: 1.6;
-	}
-
-	.value-proposition {
-		margin-bottom: 4rem;
-	}
-
-	.value-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
-	}
-
-	.value-card {
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(20px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		border-radius: 1rem;
-		padding: 2rem;
-		text-align: center;
-		transition: all 0.3s ease;
-	}
-
-	.value-card:hover {
-		transform: translateY(-5px);
-		background: rgba(255, 255, 255, 0.15);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-	}
-
-	.value-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-		display: block;
-	}
-
-	.value-card h3 {
-		font-size: 1.3rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		color: white;
-	}
-
-	.value-card p {
-		opacity: 0.9;
-		line-height: 1.6;
-	}
-
-	.technical-specs {
-		background: white;
-		color: var(--gray-900);
-		border-radius: 1.5rem;
-		padding: 3rem;
-		margin-bottom: 4rem;
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-	}
-
-	.specs-title {
-		font-size: 2rem;
-		font-weight: 700;
-		text-align: center;
-		margin-bottom: 2rem;
-		color: var(--gray-900);
-	}
-
-	.specs-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
-	}
-
-	.spec-category {
-		background: var(--gray-50);
-		padding: 1.5rem;
-		border-radius: 1rem;
-		border: 1px solid var(--gray-200);
-	}
-
-	.spec-category h3 {
-		font-size: 1.2rem;
-		font-weight: 600;
-		margin-bottom: 1rem;
-		color: var(--primary-600);
-	}
-
-	.spec-category ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.spec-category li {
-		padding: 0.5rem 0;
-		color: var(--gray-700);
-		border-bottom: 1px solid var(--gray-200);
-		font-size: 0.9rem;
-	}
-
-	.spec-category li:last-child {
-		border-bottom: none;
-	}
-
-	.package-details {
-		background: white;
-		color: var(--gray-900);
-		border-radius: 1.5rem;
-		padding: 3rem;
-		margin-bottom: 4rem;
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-	}
-
-	.package-title {
-		font-size: 2rem;
-		font-weight: 700;
-		text-align: center;
-		margin-bottom: 2rem;
-		color: var(--gray-900);
-	}
-
-	.package-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-		gap: 2rem;
-	}
-
-	.package-item {
-		display: flex;
-		gap: 1rem;
-		padding: 1.5rem;
-		background: var(--gray-50);
-		border-radius: 1rem;
-		border: 1px solid var(--gray-200);
-		transition: all 0.3s ease;
-	}
-
-	.package-item:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-	}
-
-	.package-icon {
-		font-size: 2rem;
-		flex-shrink: 0;
-	}
-
-	.package-content h4 {
-		font-size: 1.1rem;
-		font-weight: 600;
-		margin-bottom: 0.5rem;
-		color: var(--gray-900);
-	}
-
-	.package-content p {
-		color: var(--gray-600);
-		line-height: 1.5;
-		font-size: 0.9rem;
-	}
-
-	.investment-section {
-		margin-bottom: 4rem;
-	}
-
-	.investment-card {
-		background: white;
-		color: var(--gray-900);
-		border-radius: 1.5rem;
-		padding: 3rem;
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-		border: 2px solid var(--accent-500);
-	}
-
-	.investment-header {
-		text-align: center;
-		margin-bottom: 2rem;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid var(--gray-200);
-	}
-
-	.investment-header h2 {
-		font-size: 2rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		color: var(--gray-900);
-	}
-
-	.price-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.original-price {
-		font-size: 1rem;
-		color: var(--gray-500);
-		text-decoration: line-through;
-	}
-
-	.current-price {
-		display: flex;
-		align-items: baseline;
-		gap: 0.25rem;
-	}
-
-	.currency {
-		font-size: 1.5rem;
-		font-weight: 600;
-		color: var(--accent-600);
-	}
-
-	.amount {
-		font-size: 3.5rem;
-		font-weight: 800;
-		color: var(--accent-600);
-	}
-
-	.period {
-		font-size: 1.2rem;
-		color: var(--gray-600);
-		font-weight: 500;
-	}
-
-	.savings {
-		background: var(--secondary-100);
-		color: var(--secondary-700);
-		padding: 0.5rem 1rem;
-		border-radius: 2rem;
-		font-size: 0.9rem;
-		font-weight: 600;
-	}
-
-	.investment-benefits {
-		margin-bottom: 2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.benefit {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
-
-	.check-icon {
-		color: var(--secondary-600);
-		flex-shrink: 0;
-	}
-
-	.benefit span {
-		color: var(--gray-700);
-		line-height: 1.5;
-	}
-
-	.contact-section {
-		text-align: center;
-		margin-bottom: 2rem;
-	}
-
-	.contact-section h3 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		color: var(--gray-900);
-	}
-
-	.contact-section p {
-		color: var(--gray-600);
-		margin-bottom: 2rem;
-		line-height: 1.6;
-	}
-
-	.contact-buttons {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-
-	.btn-contact-primary {
-		background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
-		color: white;
-		padding: 1rem 2rem;
-		border-radius: 0.75rem;
-		text-decoration: none;
-		font-weight: 600;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-	}
-
-	.btn-contact-primary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-	}
-
-	.btn-contact-secondary {
-		background: var(--secondary-600);
-		color: white;
-		padding: 1rem 2rem;
-		border-radius: 0.75rem;
-		text-decoration: none;
-		font-weight: 600;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
-	}
-
-	.btn-contact-secondary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-		background: #059669;
-	}
-
-	.guarantee {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		padding: 1.5rem;
-		background: var(--gray-50);
-		border-radius: 0.75rem;
-		border: 1px solid var(--gray-200);
-	}
-
-	.guarantee-icon {
-		font-size: 1.5rem;
-	}
-
-	.guarantee-text {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.guarantee-text strong {
-		color: var(--gray-900);
-		font-weight: 600;
-		margin-bottom: 0.25rem;
-	}
-
-	.guarantee-text span {
-		color: var(--gray-600);
-		font-size: 0.875rem;
-	}
-
-	.why-buy-section {
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(20px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		border-radius: 1.5rem;
-		padding: 3rem;
-	}
-
-	.why-buy-section h2 {
-		font-size: 2rem;
-		font-weight: 700;
-		text-align: center;
-		margin-bottom: 2rem;
-		color: white;
-	}
-
-	.reasons-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
-	}
-
-	.reason-card {
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		border-radius: 1rem;
-		padding: 2rem;
-		text-align: center;
-		transition: all 0.3s ease;
-	}
-
-	.reason-card:hover {
-		transform: translateY(-5px);
-		background: rgba(255, 255, 255, 0.15);
-	}
-
-	.reason-number {
-		font-size: 2rem;
-		font-weight: 800;
-		color: var(--accent-500);
-		margin-bottom: 1rem;
-	}
-
-	.reason-card h3 {
-		font-size: 1.3rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		color: white;
-	}
-
-	.reason-card p {
-		opacity: 0.9;
-		line-height: 1.6;
-	}
-
-	@media (max-width: 768px) {
-		.purchase-page {
-			padding: 1rem 0;
-		}
-
-		.purchase-title {
-			font-size: 2.2rem;
-		}
-
-		.purchase-subtitle {
-			font-size: 1rem;
-		}
-
-		.value-grid,
-		.specs-grid,
-		.package-grid,
-		.reasons-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.technical-specs,
-		.package-details,
-		.investment-card {
-			padding: 2rem 1.5rem;
-		}
-
-		.amount {
-			font-size: 2.5rem;
-		}
-
-		.contact-buttons {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.btn-contact-primary,
-		.btn-contact-secondary {
-			width: 100%;
-			max-width: 300px;
-			justify-content: center;
-		}
-
-		.app-icon {
-			font-size: 3rem;
-		}
-
-		.why-buy-section {
-			padding: 2rem;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.purchase-content {
-			padding: 0 1rem;
-		}
-
-		.purchase-title {
-			font-size: 1.8rem;
-		}
-
-		.value-card,
-		.reason-card {
-			padding: 1.5rem;
-		}
-
-		.package-item {
-			flex-direction: column;
-			text-align: center;
-		}
-	}
-</style>
